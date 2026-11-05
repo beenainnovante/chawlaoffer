@@ -1,69 +1,34 @@
+
 import Image from "next/image";
 
+const products = [
+ ["Plywood", "Strong foundations · Versatile applications", "Explore plywood options for furniture, cabinetry and everyday interior projects.", "▱"],
+ ["Laminates", "Decorative surfaces · A choice of finishes", "Find colours, patterns and textures to bring your furniture and interior surfaces to life.", "▤"],
+ ["Boards", "Interior essentials · Practical solutions", "Discover boards for your furniture, partitions and interior project requirements.", "▥"],
+ ["Veneers", "Natural wood · Distinctive grain", "Bring the warmth and character of natural wood to furniture and decorative surfaces.", "≋"],
+ ["Doors", "Welcoming entrances · Considered finishes", "Explore door options to complement your spaces and interior style.", "◩"],
+ ["Flooring", "Beautiful underfoot · Finishing touches", "Discover flooring options to complete the look and feel of your home or workspace.", "▦"],
+];
+function viewerUrl(name: string) { return name === "Chawla Plywood" ? "/about" : `/products/${name.toLowerCase()}`; }
+function whatsapp(name = "Christmas offer") { return `https://wa.me/919650024478?text=${encodeURIComponent(`Hi Chawla Plywood, mujhe ${name} ki details chahiye.`)}`; }
+const terms = [["Offer eligibility", "Applicable packages and eligibility will be confirmed by Chawla."], ["Availability", "Products, services and gifts are subject to availability."], ["Booking & payment", "Booking and payment terms will be shared with your quotation."], ["Offer details", "Confirm offer validity and complete terms with Chawla before booking."]];
+function Brand() { return <a className="wordmark" href="#home" aria-label="Chawla Plywood home"><Image className="website-logo" src="/chawla-brand-white.png" alt="Chawla Plywood" width={180} height={108} priority /></a>; }
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+ return <>
+ <header className="header"><nav><Brand/><a className="gold-button" href={viewerUrl("Chawla Plywood")}>LEARN MORE <span>↗</span></a></nav></header>
+ <main id="home"><section className="hero" aria-labelledby="hero-title"><div className="hero-inner">
+ <div className="hero-copy"><p className="eyebrow">A FESTIVE BEGINNING FOR YOUR HOME</p><h1 id="hero-title">Chawla Plywood<em>Christmas Offer</em></h1><p className="intro">Bring warmth and celebration home this Christmas with Chawla Plywood.</p><div className="sale"><h2>CHRISTMAS SALE</h2><p>CONTACT CHAWLA FOR OFFER DETAILS AND AVAILABILITY.</p></div></div>
+ <aside className="gift-panel" aria-label="Festive gifts and collections"><div className="gift-art" role="img" aria-label="Festive surprises: get a chance to win one exclusive gift — headset, air fryer, comforter or speaker."/><div className="gift-links">{products.map(([name])=><a key={name} href={viewerUrl(name)}>{name}<span>↗</span></a>)}</div><a href="#offer-details" className="panel-footer">EXPLORE CHAWLA PLYWOOD <span>↓</span></a></aside>
+ </div></section>
+ <section className="details" id="offer-details" aria-labelledby="details-title"><div className="section-inner"><div className="section-heading"><p className="eyebrow">THE CELEBRATION CONTINUES</p><h2 id="details-title">A festive offer.<br/><em>A home that feels like you.</em></h2><p>Discover the Chawla Christmas offer and explore thoughtful interiors made for your home.</p></div><div className="details-layout"><article className="highlight"><span className="pill">CHRISTMAS SPECIAL</span><div className="gift-icon" aria-hidden="true">♧</div><h3>Beautiful spaces.<br/>A little extra joy.</h3><p>Explore your next home upgrade with Chawla and ask about the chance to win one exclusive gift with eligible bookings.</p><div className="gift-list"><small>FEATURED GIFT OPTIONS</small><p>Headset · Air Fryer · Comforter · Speaker</p></div><a className="gold-button enquiry-button" href={whatsapp()} target="_blank" rel="noopener noreferrer">Get offer details <span>↗</span></a><p className="fineprint">Confirm eligible products, booking requirements, gift availability and offer validity with Chawla.</p></article><div><div className="collection-caption"><span>EXPLORE OUR PRODUCTS</span><span>01 — 06</span></div><div className="collection-grid">{products.map(([name,keyword,text,icon])=><a className="collection" key={name} href={viewerUrl(name)}><span className="collection-top"><span aria-hidden="true">{icon}</span><span>↗</span></span><h3>{name}</h3><p className="keyword">{keyword}</p><p>{text}</p></a>)}</div></div></div></div></section>
+ <section className="terms" aria-labelledby="terms-title"><div className="terms-card"><p className="eyebrow">PLEASE READ BEFORE YOU SHOP</p><h2 id="terms-title">Chawla Terms & Conditions</h2><p className="terms-intro">Gift images are for illustrative purposes only. Actual gifts may vary in colour, design and appearance.</p><ol>{terms.map(([title,text],i)=><li key={title}><span className="term-number">0{i+1}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol><p className="terms-note">Preview offer details. Final offer terms to be confirmed by Chawla.</p></div></section></main>
+ <footer><div className="footer-inner"><Brand/><div><p className="footer-tagline">Thoughtful interiors. Beautiful beginnings.</p><p>Make room for a little celebration.</p><a className="phone-link" href="tel:+919650024478">+91 96500 24478</a></div><a className="footer-contact" href={whatsapp("home interiors")} target="_blank" rel="noopener noreferrer">Enquire about your home <span>↗</span></a></div><a className="back-to-top" href="#home">↑ Back to top</a><p className="copyright">© 2026 Chawla Plywood. All rights reserved.</p></footer>
+ <a className="floating-contact" href="https://wa.me/919650024478?text=Hi%20Chawla%2C%20mujhe%20Christmas%20offer%20ki%20details%20chahiye" target="_blank" rel="noopener noreferrer" aria-label="Chat with Chawla on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.16 1.6 5.97L0 24l6.27-1.64a11.9 11.9 0 0 0 5.78 1.47h.01c6.58 0 11.93-5.35 11.93-11.93 0-3.19-1.24-6.18-3.47-8.42ZM12.06 21.8a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.72.98.99-3.63-.24-.38a9.86 9.86 0 0 1-1.51-5.25c0-5.47 4.45-9.92 9.92-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.96 9.86Zm5.44-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.21 5.09 4.5.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg></a>
+
+
+ </>;
 }
+
+
+
+
